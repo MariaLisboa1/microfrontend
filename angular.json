@@ -120,6 +120,198 @@
           }
         }
       }
+    },
+    "mf-abrir-conta": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/mf-abrir-conta",
+      "sourceRoot": "apps/mf-abrir-conta/src",
+      "prefix": "microfrontend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/mf-abrir-conta",
+            "index": "apps/mf-abrir-conta/src/index.html",
+            "main": "apps/mf-abrir-conta/src/main.ts",
+            "polyfills": "apps/mf-abrir-conta/src/polyfills.ts",
+            "tsConfig": "apps/mf-abrir-conta/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/mf-abrir-conta/src/favicon.ico",
+              "apps/mf-abrir-conta/src/assets"
+            ],
+            "styles": ["apps/mf-abrir-conta/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mf-abrir-conta/src/environments/environment.ts",
+                  "with": "apps/mf-abrir-conta/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mf-abrir-conta:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mf-abrir-conta:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mf-abrir-conta:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/mf-abrir-conta/tsconfig.app.json",
+              "apps/mf-abrir-conta/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/mf-abrir-conta/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/mf-abrir-conta/jest.config.js",
+            "tsConfig": "apps/mf-abrir-conta/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/mf-abrir-conta/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "mf-abrir-conta-e2e": {
+      "root": "apps/mf-abrir-conta-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/mf-abrir-conta-e2e/protractor.conf.js",
+            "devServerTarget": "mf-abrir-conta:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mf-abrir-conta:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/mf-abrir-conta-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/mf-abrir-conta-e2e/**"]
+          }
+        }
+      }
+    },
+    "produto": {
+      "projectType": "library",
+      "root": "libs/produto",
+      "sourceRoot": "libs/produto/src",
+      "prefix": "microfrontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/produto/tsconfig.lib.json",
+              "libs/produto/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/produto/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/produto/jest.config.js",
+            "tsConfig": "libs/produto/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/produto/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "perfil": {
+      "projectType": "library",
+      "root": "libs/perfil",
+      "sourceRoot": "libs/perfil/src",
+      "prefix": "microfrontend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/perfil/tsconfig.lib.json",
+            "project": "libs/perfil/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/perfil/tsconfig.lib.json",
+              "libs/perfil/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/perfil/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/perfil/jest.config.js",
+            "tsConfig": "libs/perfil/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/perfil/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -10,14 +10,6 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
   "projects": {
     "poc": {
       "tags": []
@@ -25,6 +17,19 @@
     "poc-e2e": {
       "tags": [],
       "implicitDependencies": ["poc"]
+    },
+    "mf-abrir-conta": {
+      "tags": []
+    },
+    "mf-abrir-conta-e2e": {
+      "tags": [],
+      "implicitDependencies": ["mf-abrir-conta"]
+    },
+    "produto": {
+      "tags": []
+    },
+    "perfil": {
+      "tags": []
     }
   }
 }

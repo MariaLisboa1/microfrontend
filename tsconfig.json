@@ -15,7 +15,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@microfrontend/produto": [
+        "libs/produto/src/index.ts",
+        "dist/libs/produto"
+      ],
+      "@microfrontend/perfil": [
+        "dist/libs/produto",
+        "libs/perfil/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
