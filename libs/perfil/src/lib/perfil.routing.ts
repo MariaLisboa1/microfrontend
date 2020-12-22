@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: "",
         component: PerfilComponent
+      },
+      {
+        path: 'produto',
+        loadChildren: () => import('@microfrontend/produto').then(m => m.ProdutoModule)
       }
     ]
   }

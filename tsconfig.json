@@ -17,11 +17,11 @@
     "baseUrl": ".",
     "paths": {
       "@microfrontend/produto": [
-        "libs/produto/src/index.ts",
-        "dist/libs/produto"
+        "dist/libs/produto",
+        "libs/produto/src/index.ts"
       ],
       "@microfrontend/perfil": [
-        "dist/libs/produto",
+        "dist/libs/perfil",
         "libs/perfil/src/index.ts"
       ]
     }

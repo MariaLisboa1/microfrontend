@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'microfrontend-produto',
+  selector: 'app-microfrontend-produto',
   templateUrl: './produto.component.html',
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent implements OnInit {
-
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log("LIB COMPONENT");
+
   }
 
 }

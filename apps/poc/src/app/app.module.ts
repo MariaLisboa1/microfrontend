@@ -19,8 +19,7 @@ import { PerfilModule } from "@microfrontend/perfil";
     {
       provide: APP_BASE_HREF, useValue: "/abrir-conta"
     }
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {

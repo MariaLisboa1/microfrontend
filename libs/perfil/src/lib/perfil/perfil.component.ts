@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdLazyLoadingService } from '../prod-lazy-loading.service';
 
 @Component({
   selector: 'microfrontend-perfil',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(private prodLazyService: ProdLazyLoadingService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  addLazy(): void {
+    this.prodLazyService.load().then(_ => {
+      this.router.navigate(["/produto"])
+    });
+
   }
 
 }

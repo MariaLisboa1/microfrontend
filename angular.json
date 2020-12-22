@@ -13,8 +13,11 @@
       "prefix": "microfrontend",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
           "options": {
+            "lazyModules": [
+              "libs/produto/src/lib/produto.module"
+            ],
             "outputPath": "dist/apps/poc",
             "index": "apps/poc/src/index.html",
             "main": "apps/poc/src/main.ts",
@@ -57,7 +60,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "poc:build"
           },
@@ -248,6 +251,13 @@
       "sourceRoot": "libs/produto/src",
       "prefix": "microfrontend",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/produto/tsconfig.lib.json",
+            "project": "libs/produto/ng-package.json"
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
