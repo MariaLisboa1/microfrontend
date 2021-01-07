@@ -1,23 +1,27 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProdutoLazyLoadingService } from './produto-lazy-loading.service';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
-  selector: 'microfrontend-root',
+  selector: 'poc',
   template: `
-  POC
+  <div id="client-b">
+  <div class="card">
+    <div class="content">
+      <a routerLink="poc/page1" queryParamsHandling="merge">Passenger Search</a> | <a routerLink="poc/page2" queryParamsHandling="merge">Details</a>
+    </div>
+  </div>
   <router-outlet></router-outlet>
+</div>
   `,
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'poc';
 
-  constructor(
-    private produtoLazyService: ProdutoLazyLoadingService,
-    private router: Router
-  ) {
-    this.router.initialNavigation();
+  constructor(private route: ActivatedRoute) {
+    route.queryParams.subscribe(params => {
+      console.debug('params', params);
+    });
+
+    window.addEventListener('client-message', e => console.debug('client-message event', e));
   }
 }

@@ -30,6 +30,20 @@
     },
     "perfil": {
       "tags": []
+    },
+    "abre-conta": {
+      "tags": []
+    },
+    "abre-conta-e2e": {
+      "tags": [],
+      "implicitDependencies": ["abre-conta"]
+    },
+    "shell": {
+      "tags": []
+    },
+    "shell-e2e": {
+      "tags": [],
+      "implicitDependencies": ["shell"]
     }
   }
 }

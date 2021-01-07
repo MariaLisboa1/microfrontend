@@ -9,13 +9,4 @@ import { BrowserModule } from '@angular/platform-browser';
   exports: [ProdutoComponent],
   imports: [CommonModule, ProdutoRoutingModule],
 })
-export class ProdutoModule {
-  // constructor(private injector: Injector) {
-  //   const wc = createCustomElement(ProdutoComponent, { injector: this.injector });
-  //   if (!customElements.get("microfrontend-produto")) {
-  //     customElements.define("microfrontend-produto", wc);
-  //   }
-  // }
-
-  // ngDoBootstrap() {}
-}
+export class ProdutoModule { }

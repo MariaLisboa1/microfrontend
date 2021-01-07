@@ -11,6 +11,6 @@ import { ProdutoModule } from '@microfrontend/produto';
     ProdutoModule
   ],
   declarations: [PerfilComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents: [PerfilComponent]
 })
 export class PerfilModule {}
