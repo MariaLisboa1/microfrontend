@@ -12,7 +12,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   <router-outlet></router-outlet>
 </div>
   `,
-  styleUrls: ['./app.component.scss']
+  styles: [`
+  #client-b { border: navy dashed 5px; padding: 10px }
+`],
 })
 export class AppComponent {
   title = 'poc';

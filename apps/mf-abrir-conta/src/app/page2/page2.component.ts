@@ -32,7 +32,6 @@ import { Component, OnInit } from '@angular/core';
               class="btn btn-default">Search</button>
 
           </div>
-  <client-a-widget></client-a-widget>
   </div>
 
   </div>
